@@ -18,23 +18,25 @@ public class MelodyManager : MonoBehaviour
 {
     public List<Melody> melodies;
     private List<KeyCode> currentInput = new List<KeyCode>();
-    public ExplosionController redExplosionController;
-    public ExplosionController blueExplosionController;
+    public ExplosionController aticaExplosionController;
+    public ExplosionController astarothExplosionController;
     public Renderer centralPlanetRenderer;
-    public ToneGenerator toneGenerator; // Referencia al ToneGenerator
+    public ToneGenerator toneGenerator;
     private int redShotCount = 0;
     private int blueShotCount = 0;
-    private Dictionary<KeyCode, float> keyFrequencies; // Mapa de teclas a frecuencias
+    private Dictionary<KeyCode, float> keyFrequencies;
 
     void Start()
     {
         melodies = new List<Melody>
         {
-            new Melody("Red Melody", new List<KeyCode> { KeyCode.LeftArrow, KeyCode.UpArrow, KeyCode.RightArrow, KeyCode.LeftArrow, KeyCode.UpArrow, KeyCode.RightArrow }),
-            new Melody("Blue Melody", new List<KeyCode> { KeyCode.UpArrow, KeyCode.LeftArrow, KeyCode.RightArrow, KeyCode.UpArrow, KeyCode.LeftArrow, KeyCode.RightArrow })
+            new Melody("Melody One", new List<KeyCode> { KeyCode.UpArrow, KeyCode.LeftArrow, KeyCode.RightArrow, KeyCode.UpArrow, KeyCode.LeftArrow, KeyCode.RightArrow }),
+            new Melody("Melody Two", new List<KeyCode> { KeyCode.LeftArrow, KeyCode.UpArrow, KeyCode.RightArrow, KeyCode.LeftArrow, KeyCode.UpArrow, KeyCode.RightArrow }),
+            new Melody("Melody Three", new List<KeyCode> { KeyCode.UpArrow, KeyCode.LeftArrow, KeyCode.A, KeyCode.UpArrow, KeyCode.LeftArrow, KeyCode.A }),
+            new Melody("Melody Four", new List<KeyCode> { KeyCode.A, KeyCode.LeftArrow, KeyCode.RightArrow, KeyCode.A, KeyCode.LeftArrow, KeyCode.RightArrow })
         };
 
-        keyFrequencies = new Dictionary<KeyCode, float> // Asignar frecuencias a cada tecla
+        keyFrequencies = new Dictionary<KeyCode, float>
         {
             { KeyCode.LeftArrow, 261.63f }, // C
             { KeyCode.UpArrow, 293.66f }, // D
@@ -53,11 +55,11 @@ public class MelodyManager : MonoBehaviour
             {
                 if (keyFrequencies.ContainsKey(keyPressed))
                 {
-                    toneGenerator.PlayTone(keyFrequencies[keyPressed], 0.5f); // Reproducir tono por 0.5 segundos
+                    toneGenerator.PlayTone(keyFrequencies[keyPressed], 0.5f);
                 }
 
                 currentInput.Add(keyPressed);
-                CheckMelodies();
+                CheckMelody();
             }
         }
     }
@@ -72,7 +74,7 @@ public class MelodyManager : MonoBehaviour
         return KeyCode.None;
     }
 
-    private void CheckMelodies()
+    private void CheckMelody()
     {
         bool matched = false;
 
@@ -98,18 +100,9 @@ public class MelodyManager : MonoBehaviour
                 if (currentInput.Count == melody.Notes.Count)
                 {
                     Debug.Log("Played melody: " + melody.Name);
-                    if (melody.Name == "Red Melody")
-                    {
-                        redExplosionController.TriggerExplosion();
-                        redShotCount++;
-                        blueShotCount = Mathf.Max(0, blueShotCount - 1);
-                    }
-                    else if (melody.Name == "Blue Melody")
-                    {
-                        blueExplosionController.TriggerExplosion();
-                        blueShotCount++;
-                        redShotCount = Mathf.Max(0, redShotCount - 1);
-                    }
+                    aticaExplosionController.TriggerExplosion();
+                    redShotCount++;
+                    blueShotCount = Mathf.Max(0, blueShotCount - 1);
                     StartCoroutine(UpdateCentralPlanetColor());
                     currentInput.Clear();
                 }
@@ -120,6 +113,18 @@ public class MelodyManager : MonoBehaviour
 
         if (!matched && currentInput.Count > 0)
         {
+            astarothExplosionController.TriggerExplosion();
+            blueShotCount++;
+            redShotCount = Mathf.Max(0, redShotCount - 1);
+            StartCoroutine(UpdateCentralPlanetColor());
+            currentInput.Clear();
+        }
+        else if (currentInput.Count == 6) // Si se completó una melodía pero no coincidió con ninguna de las predefinidas
+        {
+            astarothExplosionController.TriggerExplosion(); // Disparo de la explosión roja
+            blueShotCount++;
+            redShotCount = Mathf.Max(0, redShotCount - 1);
+            StartCoroutine(UpdateCentralPlanetColor());
             currentInput.Clear();
         }
     }
@@ -128,11 +133,9 @@ public class MelodyManager : MonoBehaviour
     {
         float redValue = Mathf.Clamp01(redShotCount / 5f);
         float blueValue = Mathf.Clamp01(blueShotCount / 5f);
-        Color newColor = new Color(blueValue, 0, redValue); // Cambio de valores para corregir colores
-        yield return new WaitForSeconds(1f); // Delay para coincidir con la finalización de las partículas
+        Color newColor = new Color(blueValue, 0, redValue);
+        yield return new WaitForSeconds(1f);
         centralPlanetRenderer.material.color = newColor;
     }
 }
-
-
 
