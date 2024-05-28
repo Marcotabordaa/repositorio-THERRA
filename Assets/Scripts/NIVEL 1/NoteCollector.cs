@@ -5,7 +5,7 @@ using UnityEngine;
 public class NoteCollector : MonoBehaviour
 {
     public GameTimer gameTimer;  
-    public float timeToAdd = 5f;
+    public float timeToAdd = 30f;
 
     private int score = 0;
 

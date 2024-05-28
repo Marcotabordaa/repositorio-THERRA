@@ -5,6 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - Note
+  - Geometry
+  - PuzzleConnect
+  - PuzzlePiece
+  - EndConnector
+  - EndPiece
+  - ' isGrounded'
   layers:
   - Default
   - TransparentFX

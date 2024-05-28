@@ -673,8 +673,8 @@ PlayerSettings:
   apiCompatibilityLevelPerPlatform: {}
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: Nivel 3 Therra
-  metroPackageVersion: 
+  metroPackageName: Nivel3Therra
+  metroPackageVersion: 1.0.0.0
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
@@ -682,7 +682,7 @@ PlayerSettings:
   metroCertificateNotAfter: 0000000000000000
   metroApplicationDescription: Nivel 3 Therra
   wsaImages: {}
-  metroTileShortName: 
+  metroTileShortName: Nivel 3 Therra
   metroTileShowName: 0
   metroMediumTileShowName: 0
   metroLargeTileShowName: 0
