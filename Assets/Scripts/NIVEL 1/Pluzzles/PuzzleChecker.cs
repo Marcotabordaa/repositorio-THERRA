@@ -18,7 +18,8 @@ public class PuzzleChecker : MonoBehaviour
     {
         foreach (GameObject piece in puzzlePieces)
         {
-            if (!piece.GetComponent<PuzzlePiece>().isCorrectlyPlaced)
+            PuzzlePiece puzzlePiece3D = piece.GetComponent<PuzzlePiece>();
+            if (puzzlePiece3D == null || !puzzlePiece3D.isCorrectlyPlaced)
             {
                 return false;
             }
@@ -26,10 +27,18 @@ public class PuzzleChecker : MonoBehaviour
         return true;
     }
 
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("PuzzlePiece"))
+        {
+            Debug.Log("Pieza del puzzle detectada en el ?rea de descarga.");
+            other.GetComponent<PuzzlePiece>().CheckPlacement();
+        }
+    }
+
     void UnlockPower()
     {
         Debug.Log("Puzzle completo! Poder desbloqueado!");
-        // Aquí puedes añadir la lógica para desbloquear el poder
+        // Aqu? puedes a?adir la l?gica para desbloquear el poder
     }
-} 
-
+}

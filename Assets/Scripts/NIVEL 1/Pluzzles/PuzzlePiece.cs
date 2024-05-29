@@ -1,13 +1,11 @@
 using UnityEngine;
 
-using UnityEngine;
-
 public class PuzzlePiece : MonoBehaviour
 {
-    private bool isHeld = false; // toma la pieza
-    private Vector3 originalPosition;
-    public bool isCorrectlyPlaced = false; // Indica si la pieza está correctamente colocada
-    public Transform correctPosition; // La posición correcta que debe alcanzar la pieza
+    private bool isHeld = false; // Indica si la pieza est? siendo sostenida por el jugador
+    private Vector3 originalPosition; // Posici?n original de la pieza
+    public bool isCorrectlyPlaced = false; // Indica si la pieza est? correctamente colocada
+    public Transform correctPosition; // La posici?n correcta que debe alcanzar la pieza
     private Transform playerHand; // Referencia al transform de la mano del jugador
     private Rigidbody rb; // Referencia al Rigidbody de la pieza
 
@@ -16,14 +14,6 @@ public class PuzzlePiece : MonoBehaviour
         originalPosition = transform.position;
         playerHand = GameObject.Find("PlayerHand").transform; // Busca el GameObject de la mano del jugador
         rb = GetComponent<Rigidbody>();
-    }
-
-    void Update()
-    {
-        if (isHeld)
-        {
-            transform.position = playerHand.position; // Actualiza la posición continuamente mientras se sostiene la pieza
-        }
     }
 
     void OnMouseDown()
@@ -44,7 +34,9 @@ public class PuzzlePiece : MonoBehaviour
         {
             isHeld = true;
             rb.useGravity = false; // Desactiva la gravedad mientras se sostiene la pieza
-            rb.isKinematic = true; // Desactiva la física mientras se sostiene la pieza
+            rb.isKinematic = true; // Desactiva la f?sica mientras se sostiene la pieza
+            transform.position = playerHand.position; // Coloca la pieza en la posici?n de la mano del jugador
+            transform.SetParent(playerHand); // Adjunta la pieza a la mano del jugador
         }
     }
 
@@ -53,8 +45,9 @@ public class PuzzlePiece : MonoBehaviour
         if (isHeld)
         {
             isHeld = false;
+            transform.SetParent(null); // Desadjunta la pieza de la mano del jugador
             rb.useGravity = true; // Reactiva la gravedad cuando se suelta la pieza
-            rb.isKinematic = false; // Reactiva la física cuando se suelta la pieza
+            rb.isKinematic = false; // Reactiva la f?sica cuando se suelta la pieza
             CheckPlacement();
         }
     }
@@ -67,23 +60,11 @@ public class PuzzlePiece : MonoBehaviour
             transform.position = correctPosition.position;
             isCorrectlyPlaced = true;
             rb.isKinematic = true; // Fija la pieza en su lugar una vez colocada correctamente
-            rb.useGravity = false; // Aseguramos que no afecte la gravedad
         }
         else
         {
-            transform.position = originalPosition; // Vuelve a la posición original si no está correctamente colocada
-            rb.isKinematic = false; // Reactiva la física
-        }
-    }
-
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.transform == correctPosition && !isHeld)
-        {
-            transform.position = correctPosition.position;
-            isCorrectlyPlaced = true;
-            rb.isKinematic = true; // Fija la pieza en su lugar una vez colocada correctamente
-            rb.useGravity = false; // Aseguramos que no afecte la gravedad
+            transform.position = originalPosition; // Vuelve a la posici?n original si no est? correctamente colocada
+            rb.isKinematic = false; // Reactiva la f?sica
         }
     }
 }
