@@ -4,13 +4,21 @@ public class PuzzleChecker : MonoBehaviour
 {
     public GameObject[] puzzlePieces; // Asigna las piezas del puzzle en el inspector
     private bool isPuzzleComplete = false;
+    private int piezas;
+    bool abierto = false;
+    public OpenDoor openDoor;
+
+    public PuzzleChecker(bool _abierto)
+    {
+        abierto = _abierto;
+    }
 
     void Update()
     {
-        if (!isPuzzleComplete && CheckPuzzleComplete())
+        if (!isPuzzleComplete && CheckPuzzleComplete() )
         {
             isPuzzleComplete = true;
-            UnlockPower();
+            LiberarPuerta();
         }
     }
 
@@ -23,8 +31,10 @@ public class PuzzleChecker : MonoBehaviour
             {
                 return false;
             }
+           piezas++;
         }
         return true;
+        
     }
 
     void OnTriggerEnter(Collider other)
@@ -36,9 +46,15 @@ public class PuzzleChecker : MonoBehaviour
         }
     }
 
-    void UnlockPower()
+    void LiberarPuerta()
     {
-        Debug.Log("Puzzle completo! Poder desbloqueado!");
-        // Aqu? puedes a?adir la l?gica para desbloquear el poder
+        
+        if(piezas >= 23)
+        {
+            abierto = true;
+            openDoor.Open(abierto);
+        }
     }
+
+
 }

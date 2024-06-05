@@ -37,6 +37,7 @@ public class PuzzlePiece : MonoBehaviour
             rb.isKinematic = true; // Desactiva la f?sica mientras se sostiene la pieza
             transform.position = playerHand.position; // Coloca la pieza en la posici?n de la mano del jugador
             transform.SetParent(playerHand); // Adjunta la pieza a la mano del jugador
+
         }
     }
 
