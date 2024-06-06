@@ -3,14 +3,14 @@ using System.Collections;
 
 public class EfectoExplosion : MonoBehaviour
 {
-    public float minForce = 5f;        // Fuerza mínima de dispersión
-    public float maxForce = 10f;       // Fuerza máxima de dispersión
+    public float minForce = 30f;        // Fuerza mínima de dispersión
+    public float maxForce = 60f;       // Fuerza máxima de dispersión
     public float forceDuration = 0.5f; // Duración de la fuerza inicial
-    public float moveDuration = 2f;    // Duración del movimiento controlado
+    public float moveDuration = 1f;    // Duración del movimiento controlado
     public float moveSpeed = 2f;       // Velocidad de movimiento
-    public ParticleSystem particleSystem;  // Referencia al sistema de partículas
-    private float radioDeExplosión;
-    private bool isMoving = false;
+    public new ParticleSystem particleSystem;  // Referencia al sistema de partículas
+    private float radioDeExplosión = 100f;
+    //private bool isMoving = false;
 
     void Start()
     {
@@ -46,9 +46,9 @@ public class EfectoExplosion : MonoBehaviour
         rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
 
-        // Iniciar el movimiento controlado
+       /* // Iniciar el movimiento controlado
         isMoving = true;
-        StartCoroutine(MovePiece(rb));
+        StartCoroutine(MovePiece(rb));*/
     }
 
     private IEnumerator MovePiece(Rigidbody rb)
@@ -64,10 +64,10 @@ public class EfectoExplosion : MonoBehaviour
             yield return null;
         }
 
-        // Detener el movimiento controlado después del tiempo especificado
+       /* // Detener el movimiento controlado después del tiempo especificado
         rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
-        isMoving = false;
+        isMoving = false;*/
     }
 
     private void OnDrawGizmos()

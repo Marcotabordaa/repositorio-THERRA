@@ -258,7 +258,7 @@ Transform:
   m_GameObject: {fileID: 29260947}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 527.38885, y: 9.629992, z: 237.2}
+  m_LocalPosition: {x: 514.58887, y: 12.229992, z: 237.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -303,10 +303,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 485f3cf5e33fa7544b0a61585c664ff5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minForce: 200
-  maxForce: 500
+  minForce: 80
+  maxForce: 180
   forceDuration: 0.5
-  moveDuration: 2
+  moveDuration: 1
   moveSpeed: 0.1
   particleSystem: {fileID: 1214256876}
 --- !u!65 &29260957
@@ -820,7 +820,7 @@ Transform:
   m_GameObject: {fileID: 129031226}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 517.252, y: 6.3029957, z: 237.2}
+  m_LocalPosition: {x: 504.45203, y: 8.902996, z: 237.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -865,10 +865,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 485f3cf5e33fa7544b0a61585c664ff5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minForce: 200
-  maxForce: 500
+  minForce: 80
+  maxForce: 180
   forceDuration: 0.5
-  moveDuration: 2
+  moveDuration: 1
   moveSpeed: 0.1
   particleSystem: {fileID: 1214256876}
 --- !u!65 &129031236
@@ -1354,7 +1354,7 @@ Transform:
   m_GameObject: {fileID: 249761224}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 520.67, y: 12.493998, z: 237.2}
+  m_LocalPosition: {x: 507.87, y: 15.093998, z: 237.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1399,10 +1399,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 485f3cf5e33fa7544b0a61585c664ff5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minForce: 200
-  maxForce: 500
+  minForce: 80
+  maxForce: 180
   forceDuration: 0.5
-  moveDuration: 2
+  moveDuration: 1
   moveSpeed: 0.1
   particleSystem: {fileID: 1214256876}
 --- !u!65 &249761234
@@ -2216,7 +2216,7 @@ Transform:
   m_GameObject: {fileID: 529997845}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 527.36005, y: 12.493998, z: 237.2}
+  m_LocalPosition: {x: 514.56006, y: 15.093998, z: 237.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2261,10 +2261,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 485f3cf5e33fa7544b0a61585c664ff5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minForce: 200
-  maxForce: 500
+  minForce: 80
+  maxForce: 180
   forceDuration: 0.5
-  moveDuration: 2
+  moveDuration: 1
   moveSpeed: 0.1
   particleSystem: {fileID: 1214256876}
 --- !u!65 &529997855
@@ -2895,7 +2895,7 @@ Transform:
   m_GameObject: {fileID: 876237895}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
-  m_LocalPosition: {x: 524.04, y: 9.619997, z: 237.2}
+  m_LocalPosition: {x: 511.24, y: 12.219997, z: 237.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2940,10 +2940,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 485f3cf5e33fa7544b0a61585c664ff5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minForce: 200
-  maxForce: 500
+  minForce: 80
+  maxForce: 180
   forceDuration: 0.5
-  moveDuration: 2
+  moveDuration: 1
   moveSpeed: 0.1
   particleSystem: {fileID: 1214256876}
 --- !u!65 &876237905
@@ -3297,7 +3297,7 @@ Transform:
   m_GameObject: {fileID: 928349382}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 520.62994, y: 9.649996, z: 237.2}
+  m_LocalPosition: {x: 507.82996, y: 12.249996, z: 237.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3342,10 +3342,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 485f3cf5e33fa7544b0a61585c664ff5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minForce: 200
-  maxForce: 500
+  minForce: 80
+  maxForce: 180
   forceDuration: 0.5
-  moveDuration: 2
+  moveDuration: 1
   moveSpeed: 0.1
   particleSystem: {fileID: 1214256876}
 --- !u!65 &928349392
@@ -3592,7 +3592,7 @@ Transform:
   m_GameObject: {fileID: 980172438}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 514.39996, y: 9.649996, z: 237.2}
+  m_LocalPosition: {x: 501.59998, y: 12.249996, z: 237.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3637,10 +3637,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 485f3cf5e33fa7544b0a61585c664ff5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minForce: 200
-  maxForce: 500
+  minForce: 80
+  maxForce: 180
   forceDuration: 0.5
-  moveDuration: 2
+  moveDuration: 1
   moveSpeed: 0.1
   particleSystem: {fileID: 1214256876}
 --- !u!65 &980172448
@@ -3826,7 +3826,7 @@ Transform:
   m_GameObject: {fileID: 996537080}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 530.73883, y: 2.9788914, z: 237.2}
+  m_LocalPosition: {x: 517.93884, y: 5.5788918, z: 237.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3871,10 +3871,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 485f3cf5e33fa7544b0a61585c664ff5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minForce: 200
-  maxForce: 1000
+  minForce: 80
+  maxForce: 180
   forceDuration: 0.5
-  moveDuration: 2
+  moveDuration: 1
   moveSpeed: 0.1
   particleSystem: {fileID: 1214256876}
 --- !u!65 &996537090
@@ -4065,7 +4065,7 @@ Transform:
   m_GameObject: {fileID: 1063548523}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
-  m_LocalPosition: {x: 513.95, y: 2.8999958, z: 237.2}
+  m_LocalPosition: {x: 501.15002, y: 5.499996, z: 237.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4110,10 +4110,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 485f3cf5e33fa7544b0a61585c664ff5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minForce: 200
-  maxForce: 500
+  minForce: 50
+  maxForce: 100
   forceDuration: 0.5
-  moveDuration: 2
+  moveDuration: 1
   moveSpeed: 0.1
   particleSystem: {fileID: 1214256876}
 --- !u!65 &1063548533
@@ -4304,7 +4304,7 @@ Transform:
   m_GameObject: {fileID: 1118739619}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 530.231, y: 6.2299976, z: 237.2}
+  m_LocalPosition: {x: 517.431, y: 8.829998, z: 237.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4349,10 +4349,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 485f3cf5e33fa7544b0a61585c664ff5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minForce: 200
-  maxForce: 500
+  minForce: 80
+  maxForce: 180
   forceDuration: 0.5
-  moveDuration: 2
+  moveDuration: 1
   moveSpeed: 0.1
   particleSystem: {fileID: 1214256876}
 --- !u!65 &1118739629
@@ -4538,7 +4538,7 @@ Transform:
   m_GameObject: {fileID: 1122047243}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 530.7, y: 9.599993, z: 237.2}
+  m_LocalPosition: {x: 517.9, y: 12.199993, z: 237.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4583,10 +4583,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 485f3cf5e33fa7544b0a61585c664ff5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minForce: 200
-  maxForce: 500
+  minForce: 80
+  maxForce: 180
   forceDuration: 0.5
-  moveDuration: 2
+  moveDuration: 1
   moveSpeed: 0.1
   particleSystem: {fileID: 1214256876}
 --- !u!65 &1122047253
@@ -4772,7 +4772,7 @@ Transform:
   m_GameObject: {fileID: 1132382714}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
-  m_LocalPosition: {x: 527.3648, y: 6.265894, z: 237.2}
+  m_LocalPosition: {x: 514.5648, y: 8.865894, z: 237.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4817,10 +4817,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 485f3cf5e33fa7544b0a61585c664ff5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minForce: 200
-  maxForce: 500
+  minForce: 80
+  maxForce: 180
   forceDuration: 0.5
-  moveDuration: 2
+  moveDuration: 1
   moveSpeed: 0.1
   particleSystem: {fileID: 1214256876}
 --- !u!65 &1132382724
@@ -5006,7 +5006,7 @@ Transform:
   m_GameObject: {fileID: 1182874295}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
-  m_LocalPosition: {x: 523.95, y: 3.4199924, z: 237.2}
+  m_LocalPosition: {x: 511.15002, y: 6.019993, z: 237.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5051,10 +5051,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 485f3cf5e33fa7544b0a61585c664ff5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minForce: 200
-  maxForce: 500
+  minForce: 40
+  maxForce: 10
   forceDuration: 0.5
-  moveDuration: 2
+  moveDuration: 1
   moveSpeed: 0.1
   particleSystem: {fileID: 1214256876}
 --- !u!65 &1182874305
@@ -5240,7 +5240,7 @@ Transform:
   m_GameObject: {fileID: 1196821962}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
-  m_LocalPosition: {x: 520.59, y: 2.9499912, z: 237.2}
+  m_LocalPosition: {x: 507.79004, y: 5.5499916, z: 237.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5285,10 +5285,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 485f3cf5e33fa7544b0a61585c664ff5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minForce: 200
-  maxForce: 500
+  minForce: 80
+  maxForce: 180
   forceDuration: 0.5
-  moveDuration: 2
+  moveDuration: 1
   moveSpeed: 0.1
   particleSystem: {fileID: 1214256876}
 --- !u!65 &1196821972
@@ -10390,7 +10390,7 @@ Transform:
   m_GameObject: {fileID: 1220839929}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
-  m_LocalPosition: {x: 517.2989, y: 9.6398945, z: 237.2}
+  m_LocalPosition: {x: 504.4989, y: 12.239895, z: 237.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -10435,10 +10435,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 485f3cf5e33fa7544b0a61585c664ff5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minForce: 200
-  maxForce: 500
+  minForce: 40
+  maxForce: 100
   forceDuration: 0.5
-  moveDuration: 2
+  moveDuration: 1
   moveSpeed: 0.1
   particleSystem: {fileID: 1214256876}
 --- !u!65 &1220839939
@@ -10980,7 +10980,7 @@ Transform:
   m_GameObject: {fileID: 1320269241}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 523.97003, y: 6.279993, z: 237.2}
+  m_LocalPosition: {x: 511.17004, y: 8.879993, z: 237.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -11025,10 +11025,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 485f3cf5e33fa7544b0a61585c664ff5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minForce: 200
-  maxForce: 500
+  minForce: 80
+  maxForce: 180
   forceDuration: 0.5
-  moveDuration: 2
+  moveDuration: 1
   moveSpeed: 0.1
   particleSystem: {fileID: 1214256876}
 --- !u!65 &1320269251
@@ -11099,7 +11099,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 7.3136444
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -11394,7 +11394,7 @@ Transform:
   m_GameObject: {fileID: 1362604534}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
-  m_LocalPosition: {x: 527.34, y: 2.9599934, z: 237.2}
+  m_LocalPosition: {x: 514.54004, y: 5.5599937, z: 237.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -11439,10 +11439,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 485f3cf5e33fa7544b0a61585c664ff5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minForce: 200
-  maxForce: 500
+  minForce: 50
+  maxForce: 100
   forceDuration: 0.5
-  moveDuration: 2
+  moveDuration: 1
   moveSpeed: 0.1
   particleSystem: {fileID: 1214256876}
 --- !u!65 &1362604544
@@ -11628,7 +11628,7 @@ Transform:
   m_GameObject: {fileID: 1392133795}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
-  m_LocalPosition: {x: 520.61, y: 6.2699986, z: 237.2}
+  m_LocalPosition: {x: 507.81, y: 8.869999, z: 237.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -11673,10 +11673,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 485f3cf5e33fa7544b0a61585c664ff5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minForce: 200
-  maxForce: 500
+  minForce: 80
+  maxForce: 180
   forceDuration: 0.5
-  moveDuration: 2
+  moveDuration: 1
   moveSpeed: 0.1
   particleSystem: {fileID: 1214256876}
 --- !u!65 &1392133805
@@ -11867,7 +11867,7 @@ Transform:
   m_GameObject: {fileID: 1404098026}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
-  m_LocalPosition: {x: 517.242, y: 3.4239979, z: 237.2}
+  m_LocalPosition: {x: 504.44202, y: 6.0239983, z: 237.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -11912,10 +11912,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 485f3cf5e33fa7544b0a61585c664ff5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minForce: 200
-  maxForce: 500
+  minForce: 80
+  maxForce: 180
   forceDuration: 0.5
-  moveDuration: 2
+  moveDuration: 1
   moveSpeed: 0.1
   particleSystem: {fileID: 1214256876}
 --- !u!65 &1404098036
@@ -12274,7 +12274,7 @@ Transform:
   m_GameObject: {fileID: 1436551692}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 524.04, y: 12.959993, z: 237.2}
+  m_LocalPosition: {x: 511.24, y: 15.559994, z: 237.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -12319,10 +12319,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 485f3cf5e33fa7544b0a61585c664ff5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minForce: 200
-  maxForce: 500
+  minForce: 80
+  maxForce: 180
   forceDuration: 0.5
-  moveDuration: 2
+  moveDuration: 1
   moveSpeed: 0.1
   particleSystem: {fileID: 1214256876}
 --- !u!65 &1436551702
@@ -12564,7 +12564,7 @@ Transform:
   m_GameObject: {fileID: 1536075148}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 530.7, y: 13, z: 237.2}
+  m_LocalPosition: {x: 517.9, y: 15.6, z: 237.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -12610,10 +12610,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 485f3cf5e33fa7544b0a61585c664ff5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minForce: 200
-  maxForce: 500
+  minForce: 80
+  maxForce: 180
   forceDuration: 0.5
-  moveDuration: 2
+  moveDuration: 1
   moveSpeed: 0.1
   particleSystem: {fileID: 1214256876}
 --- !u!65 &1536075158
@@ -12799,7 +12799,7 @@ Transform:
   m_GameObject: {fileID: 1553128944}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 513.89996, y: 12.959993, z: 237.2}
+  m_LocalPosition: {x: 501.09998, y: 15.559994, z: 237.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -12844,10 +12844,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 485f3cf5e33fa7544b0a61585c664ff5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minForce: 200
-  maxForce: 500
+  minForce: 80
+  maxForce: 180
   forceDuration: 0.5
-  moveDuration: 2
+  moveDuration: 1
   moveSpeed: 0.1
   particleSystem: {fileID: 1214256876}
 --- !u!65 &1553128954
@@ -13436,7 +13436,7 @@ Transform:
   m_GameObject: {fileID: 1644485424}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 517.31, y: 12.954996, z: 237.2}
+  m_LocalPosition: {x: 504.51, y: 15.5549965, z: 237.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -13481,10 +13481,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 485f3cf5e33fa7544b0a61585c664ff5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minForce: 200
-  maxForce: 500
+  minForce: 80
+  maxForce: 180
   forceDuration: 0.5
-  moveDuration: 2
+  moveDuration: 1
   moveSpeed: 0.1
   particleSystem: {fileID: 1214256876}
 --- !u!65 &1644485434
@@ -14591,7 +14591,7 @@ Transform:
   m_GameObject: {fileID: 1895806898}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 513.93, y: 6.309992, z: 237.2}
+  m_LocalPosition: {x: 501.13, y: 8.909992, z: 237.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -14636,10 +14636,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 485f3cf5e33fa7544b0a61585c664ff5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minForce: 200
-  maxForce: 500
+  minForce: 80
+  maxForce: 180
   forceDuration: 0.5
-  moveDuration: 2
+  moveDuration: 1
   moveSpeed: 0.1
   particleSystem: {fileID: 1214256876}
 --- !u!65 &1895806908
