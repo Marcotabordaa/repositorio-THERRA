@@ -9,7 +9,7 @@ public class EfectoExplosion : MonoBehaviour
     public float moveDuration = 1f;    // Duración del movimiento controlado
     public float moveSpeed = 2f;       // Velocidad de movimiento
     public new ParticleSystem particleSystem;  // Referencia al sistema de partículas
-    private float radioDeExplosión = 100f;
+    private float radioDeExplosion = 100f;
     //private bool isMoving = false;
 
     void Start()
@@ -73,6 +73,6 @@ public class EfectoExplosion : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, radioDeExplosión);
+        Gizmos.DrawWireSphere(transform.position, radioDeExplosion);
     }
 }
