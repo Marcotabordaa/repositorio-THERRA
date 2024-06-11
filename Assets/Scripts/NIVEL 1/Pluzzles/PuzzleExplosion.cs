@@ -42,7 +42,11 @@ public class PuzzleExplosion: MonoBehaviour
 
         // Iniciar el movimiento controlado
         isMoving = true;
-        StartCoroutine(MovePiece(rb2D));
+        if (isMoving)
+        {
+            StartCoroutine(MovePiece(rb2D));
+        }
+        
     }
 
     private IEnumerator MovePiece(Rigidbody2D rb2D)

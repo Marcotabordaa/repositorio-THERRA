@@ -34,7 +34,7 @@ public class EfectoExplosion : MonoBehaviour
             rb.AddForce(randomDirection * randomForce, ForceMode.Impulse);
 
             // Iniciar la corrutina para detener la fuerza inicial después de cierto tiempo
-            StartCoroutine(StopInitialForce(rb, forceDuration));
+            //StartCoroutine(StopInitialForce(rb, forceDuration));
         }
     }
 

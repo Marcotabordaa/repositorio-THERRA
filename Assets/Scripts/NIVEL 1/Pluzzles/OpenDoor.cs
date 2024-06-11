@@ -3,16 +3,15 @@ using UnityEngine;
 public class OpenDoor : MonoBehaviour
 {
     public Vector3 openPosition;
-    public float openSpeed = 2f;
+    public float openSpeed = 0.5f;
     private Vector3 closedPosition;
     private bool isOpening = false;
     bool abierto = false;
-    private PuzzleChecker _puzzleChecker;
-
+    
     void Start()
     {
-        _puzzleChecker = new PuzzleChecker(abierto);
-        closedPosition = transform.position;
+
+
     }
 
     void Update()

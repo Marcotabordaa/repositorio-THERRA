@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 6d4778ce914033d48b3c5cb46a931f5f
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - vidaMaxima: {fileID: 21300000, guid: f8f3bfcd486b78c4cb39fa5a71e9158c, type: 3}
+  - vidaCinco: {fileID: 21300000, guid: 3f89b70c959265c47894170147200962, type: 3}
+  - vidaCuatro: {fileID: 21300000, guid: fb48372faedc6c04592b7045163be70a, type: 3}
+  - vidaTres: {fileID: 21300000, guid: c9584ea31b16fd14a9087c117606874b, type: 3}
+  - vidados: {fileID: 21300000, guid: 266f38e36e8487e4b8210b6a1af0f81f, type: 3}
+  - vidauno: {fileID: 21300000, guid: 0fb347a6193bdd6439f0b578459cf1bb, type: 3}
+  - sinVida: {fileID: 21300000, guid: 294608ec763c6124fb818ac8a608fd2e, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

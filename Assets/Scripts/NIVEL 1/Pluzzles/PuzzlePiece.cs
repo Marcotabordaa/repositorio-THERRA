@@ -2,70 +2,50 @@ using UnityEngine;
 
 public class PuzzlePiece : MonoBehaviour
 {
-    private bool isHeld = false; // Indica si la pieza est? siendo sostenida por el jugador
-    private Vector3 originalPosition; // Posici?n original de la pieza
-    public bool isCorrectlyPlaced = false; // Indica si la pieza est? correctamente colocada
-    public Transform correctPosition; // La posici?n correcta que debe alcanzar la pieza
-    private Transform playerHand; // Referencia al transform de la mano del jugador
-    private Rigidbody rb; // Referencia al Rigidbody de la pieza
+    public bool isCorrectlyPlaced = false;
+    public Transform correctPosition;
+    private Rigidbody rb;
+    private Vector3 originalPosition;
 
     void Start()
     {
         originalPosition = transform.position;
-        playerHand = GameObject.Find("PlayerHand").transform; // Busca el GameObject de la mano del jugador
         rb = GetComponent<Rigidbody>();
     }
 
-    void OnMouseDown()
+    public void PickUpPiece(Transform playerHand)
     {
-        if (!isHeld)
-        {
-            PickUpPiece();
-        }
-        else
-        {
-            DropPiece();
-        }
+        rb.useGravity = false; // Desactiva la gravedad mientras se sostiene la pieza
+        rb.isKinematic = true; // Desactiva la física mientras se sostiene la pieza
+        transform.position = playerHand.position; // Coloca la pieza en la posición de la mano del jugador
+        transform.SetParent(playerHand); // Adjunta la pieza a la mano del jugador
     }
 
-    void PickUpPiece()
+    public void DropPiece()
     {
-        if (!isCorrectlyPlaced)
-        {
-            isHeld = true;
-            rb.useGravity = false; // Desactiva la gravedad mientras se sostiene la pieza
-            rb.isKinematic = true; // Desactiva la f?sica mientras se sostiene la pieza
-            transform.position = playerHand.position; // Coloca la pieza en la posici?n de la mano del jugador
-            transform.SetParent(playerHand); // Adjunta la pieza a la mano del jugador
-
-        }
-    }
-
-    void DropPiece()
-    {
-        if (isHeld)
-        {
-            isHeld = false;
-            transform.SetParent(null); // Desadjunta la pieza de la mano del jugador
-            rb.useGravity = true; // Reactiva la gravedad cuando se suelta la pieza
-            rb.isKinematic = false; // Reactiva la f?sica cuando se suelta la pieza
-            CheckPlacement();
-        }
+        transform.SetParent(null); // Desadjunta la pieza de la mano del jugador
+        rb.useGravity = true; // Reactiva la gravedad cuando se suelta la pieza
+        rb.isKinematic = false; // Reactiva la física cuando se suelta la pieza
+        CheckPlacement();
     }
 
     public void CheckPlacement()
     {
+        // En lugar de verificar la distancia aqui, lo podemos hacer desde el otro lugar "PuzzleChecker".
+        // para eso, lo podemos hacer con un SphereCast
+
         float distance = Vector3.Distance(transform.position, correctPosition.position);
-        if (distance < 0.5f) // Tolerancia para considerar la pieza correctamente colocada
+        if (distance < 5f) // Tolerancia para considerar la pieza correctamente colocada
         {
             transform.position = correctPosition.position;
             isCorrectlyPlaced = true;
             rb.isKinematic = true; // Fija la pieza en su lugar una vez colocada correctamente
+            Debug.Log("Pieza correctamente colocada");
         }
         else
         {
-            transform.position = originalPosition; // Vuelve a la posici?n original si no est? correctamente colocada
-            rb.isKinematic = false; // Reactiva la f?sica
+            rb.isKinematic = false; // Reactiva la física
+            Debug.Log("Pieza no colocada correctamente");
         }
     }
 }

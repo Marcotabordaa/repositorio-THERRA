@@ -4,18 +4,13 @@ public class PuzzleChecker : MonoBehaviour
 {
     public GameObject[] puzzlePieces; // Asigna las piezas del puzzle en el inspector
     private bool isPuzzleComplete = false;
-    private int piezas;
+    private int piezas = 0;
     bool abierto = false;
     public OpenDoor openDoor;
 
-    public PuzzleChecker(bool _abierto)
-    {
-        abierto = _abierto;
-    }
-
     void Update()
     {
-        if (!isPuzzleComplete && CheckPuzzleComplete() )
+        if (!isPuzzleComplete && CheckPuzzleComplete())
         {
             isPuzzleComplete = true;
             LiberarPuerta();
@@ -24,6 +19,7 @@ public class PuzzleChecker : MonoBehaviour
 
     bool CheckPuzzleComplete()
     {
+        piezas = 0; // Resetear el contador de piezas correctamente colocadas
         foreach (GameObject piece in puzzlePieces)
         {
             PuzzlePiece puzzlePiece3D = piece.GetComponent<PuzzlePiece>();
@@ -31,30 +27,20 @@ public class PuzzleChecker : MonoBehaviour
             {
                 return false;
             }
-           piezas++;
+            piezas++;
         }
         return true;
-        
-    }
-
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("PuzzlePiece"))
-        {
-            Debug.Log("Pieza del puzzle detectada en el ?rea de descarga.");
-            other.GetComponent<PuzzlePiece>().CheckPlacement();
-        }
     }
 
     void LiberarPuerta()
+         
     {
-        
-        if(piezas >= 23)
+        Debug.Log("Número de piezas correctamente colocadas: " + piezas);
+        if (piezas >= puzzlePieces.Length) // Asegúrate de comparar con el número total de piezas
         {
+            Debug.Log("Todas las piezas están en su lugar. Abriendo la puerta.");
             abierto = true;
             openDoor.Open(abierto);
         }
     }
-
-
 }

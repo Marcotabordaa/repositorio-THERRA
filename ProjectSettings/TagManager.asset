@@ -4,13 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Note
-  - Geometry
-  - PuzzleConnect
   - PuzzlePiece
-  - EndConnector
-  - EndPiece
-  - ' isGrounded'
+  - Note
   layers:
   - Default
   - TransparentFX
@@ -19,7 +14,7 @@ TagManager:
   - Water
   - UI
   - 
-  - 
+  - Ground
   - 
   - 
   - 

@@ -7,8 +7,8 @@ public class ThirdPersonCamera : MonoBehaviour
     public float xSpeed = 120.0f; // Velocidad de rotación en el eje X
     public float ySpeed = 120.0f; // Velocidad de rotación en el eje Y
 
-    public float yMinLimit = -20f; // Límite mínimo de rotación en el eje Y
-    public float yMaxLimit = 80f; // Límite máximo de rotación en el eje Y
+    public float yMinLimit = -10f; // Límite mínimo de rotación en el eje Y
+    public float yMaxLimit = 90f; // Límite máximo de rotación en el eje Y
 
     private float x = 0.0f; // Rotación actual en el eje X
     private float y = 0.0f; // Rotación actual en el eje Y
@@ -54,11 +54,11 @@ public class ThirdPersonCamera : MonoBehaviour
             Quaternion rotation = Quaternion.Euler(y, x, 0);
 
             // Calcular la posición de la cámara
-            Vector3 position = rotation * new Vector3(0.0f, 0.0f, -distance) + target.position;
+            Vector3 position = rotation * new Vector3(0.0f, 1.39f, -distance) + target.position;
 
             // Establecer la rotación y posición de la cámara
             transform.rotation = rotation;
-            transform.position = position;
+            //transform.position = position;
         }
     }
 
