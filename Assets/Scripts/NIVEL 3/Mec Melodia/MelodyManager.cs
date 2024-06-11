@@ -22,9 +22,15 @@ public class MelodyManager : MonoBehaviour
     public ExplosionController astarothExplosionController;
     public Renderer centralPlanetRenderer;
     public ToneGenerator toneGenerator;
+    public MelodyUIManager melodyUIManager; // Referencia al MelodyUIManager
+    public ScoreManager scoreManager; // Referencia al ScoreManager
+    public GameObject winPanel; // Panel de victoria
+    public GameObject losePanel; // Panel de derrota
+    private int currentMelodyIndex = 0;
+    private bool waitingForPlayerInput = false;
+    private Dictionary<KeyCode, float> keyFrequencies;
     private int redShotCount = 0;
     private int blueShotCount = 0;
-    private Dictionary<KeyCode, float> keyFrequencies;
 
     void Start()
     {
@@ -44,11 +50,13 @@ public class MelodyManager : MonoBehaviour
             { KeyCode.DownArrow, 349.23f }, // F
             { KeyCode.A, 392.00f } // G
         };
+
+        StartCoroutine(ShowMelodySequence());
     }
 
     void Update()
     {
-        if (Input.anyKeyDown)
+        if (waitingForPlayerInput && Input.anyKeyDown)
         {
             KeyCode keyPressed = GetKeyPressed();
             if (keyPressed != KeyCode.None)
@@ -59,7 +67,10 @@ public class MelodyManager : MonoBehaviour
                 }
 
                 currentInput.Add(keyPressed);
-                CheckMelody();
+                if (currentInput.Count >= 6) // Esperar a que el jugador ingrese al menos seis teclas
+                {
+                    CheckMelody();
+                }
             }
         }
     }
@@ -80,7 +91,7 @@ public class MelodyManager : MonoBehaviour
 
         foreach (var melody in melodies)
         {
-            if (currentInput.Count > melody.Notes.Count)
+            if (currentInput.Count != melody.Notes.Count)
             {
                 continue;
             }
@@ -97,36 +108,76 @@ public class MelodyManager : MonoBehaviour
 
             if (isMatch)
             {
-                if (currentInput.Count == melody.Notes.Count)
-                {
-                    Debug.Log("Played melody: " + melody.Name);
-                    aticaExplosionController.TriggerExplosion();
-                    redShotCount++;
-                    blueShotCount = Mathf.Max(0, blueShotCount - 1);
-                    StartCoroutine(UpdateCentralPlanetColor());
-                    currentInput.Clear();
-                }
+                Debug.Log("Played melody: " + melody.Name);
+                aticaExplosionController.TriggerExplosion();
+                redShotCount++;
+                blueShotCount = Mathf.Max(0, blueShotCount - 1);
+                StartCoroutine(UpdateCentralPlanetColor());
                 matched = true;
+
+                // Incrementar los puntos del jugador cuando acierta
+                scoreManager.AddPlayerPoints(10); // Por ejemplo, 10 puntos por melodía acertada
                 break;
             }
         }
 
-        if (!matched && currentInput.Count > 0)
+        if (!matched)
         {
             astarothExplosionController.TriggerExplosion();
             blueShotCount++;
             redShotCount = Mathf.Max(0, redShotCount - 1);
             StartCoroutine(UpdateCentralPlanetColor());
-            currentInput.Clear();
+
+            // Incrementar los puntos del rojo cuando el jugador falla
+            scoreManager.AddRedPoints(10); // Por ejemplo, 5 puntos por melodía fallada
         }
-        else if (currentInput.Count == 6) // Si se completó una melodía pero no coincidió con ninguna de las predefinidas
+
+        currentInput.Clear();
+        waitingForPlayerInput = false;
+
+        // Verificar si se ha alcanzado el límite de puntuación
+        if (scoreManager.IsScoreLimitReached())
         {
-            astarothExplosionController.TriggerExplosion(); // Disparo de la explosión roja
-            blueShotCount++;
-            redShotCount = Mathf.Max(0, redShotCount - 1);
-            StartCoroutine(UpdateCentralPlanetColor());
-            currentInput.Clear();
+            if (scoreManager.IsPlayerWinner())
+            {
+                winPanel.SetActive(true); // Mostrar el panel de victoria
+            }
+            else
+            {
+                losePanel.SetActive(true); // Mostrar el panel de derrota
+            }
         }
+        else
+        {
+            // Incrementar el índice de la melodía para pasar a la siguiente
+            currentMelodyIndex++;
+            if (currentMelodyIndex < melodies.Count)
+            {
+                StartCoroutine(ShowNextMelody());
+            }
+            else
+            {
+                currentMelodyIndex = 0; // Reiniciar el índice si se han completado todas las melodías
+                StartCoroutine(ShowNextMelody());
+            }
+        }
+    }
+
+    private IEnumerator ShowMelodySequence()
+    {
+        if (currentMelodyIndex < melodies.Count)
+        {
+            melodyUIManager.ShowMelody(currentMelodyIndex);
+            yield return new WaitForSeconds(3f);
+            melodyUIManager.HideAllMelodies();
+            waitingForPlayerInput = true;
+        }
+    }
+
+    private IEnumerator ShowNextMelody()
+    {
+        yield return new WaitForSeconds(1f); // Pequeña pausa antes de mostrar la siguiente melodía
+        StartCoroutine(ShowMelodySequence());
     }
 
     private IEnumerator UpdateCentralPlanetColor()
@@ -138,4 +189,3 @@ public class MelodyManager : MonoBehaviour
         centralPlanetRenderer.material.color = newColor;
     }
 }
-

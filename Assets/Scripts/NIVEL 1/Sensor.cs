@@ -6,44 +6,44 @@ using UnityEngine;
 [RequireComponent(typeof(LineRenderer))]
 public class Sensor : MonoBehaviour
 {
-    [Header("Configuración del Sensor")]
-    [Tooltip("Define el tamaño inicial del sensor. Si lo desea, en el resto de las configuraciones podrá dejarlo fijo o que cambie dinámicamente de tamaño.")]
-    public float tamañoSensor = 10;
-    [Tooltip("El material que se le aplicará al sensor.")]
+    [Header("Configuraci?n del Sensor")]
+    [Tooltip("Define el tama?o inicial del sensor. Si lo desea, en el resto de las configuraciones podr? dejarlo fijo o que cambie din?micamente de tama?o.")]
+    public float tamanoSensor = 10;
+    [Tooltip("El material que se le aplicar? al sensor.")]
     public Material material;
-    [Tooltip("El sonido FX que se le aplicará al sensor.")]
+    [Tooltip("El sonido FX que se le aplicar? al sensor.")]
     public AudioClip sonidofx;
-    [Tooltip("Define el grosor de línea con el que se pintará.")]
+    [Tooltip("Define el grosor de l?nea con el que se pintar?.")]
     public float lineaGrosor = 0.05f;
-    [Tooltip("Define la velocidad de variación del tamaño del sensor.")]
+    [Tooltip("Define la velocidad de variaci?n del tama?o del sensor.")]
     public float velocidadEscalado = 0.5f;
-    [Tooltip("Define la frecuencia de sombreado que tendrá el sensor. Es la unidad de interlineado que se usará para dibujar.")]
+    [Tooltip("Define la frecuencia de sombreado que tendr? el sensor. Es la unidad de interlineado que se usar? para dibujar.")]
     public float frecuenciaSombreado = 1f;
-    [Tooltip("Tiempo de vida que estará activo el sensor. (Aplica para las formas de propagación: Bucle y Fijo)")]
+    [Tooltip("Tiempo de vida que estar? activo el sensor. (Aplica para las formas de propagaci?n: Bucle y Fijo)")]
     public float tiempo = 10;
     [Tooltip("Define el Tipo de Dibujo del Sensor. Puede ser de tipo Caja Sombreada o Plano Sombreado.")]
     public TipoDibujo tipoDibujo;
 
     [Space(5)]
 
-    [Header("Forma de Propagación")]
-    [Tooltip("Si está activado, el sensor se propagará expandiéndose solamente como una ráfaga. Su tiempo de vida será mientras no alcance el tamaño límite del sensor.")]
+    [Header("Forma de Propagaci?n")]
+    [Tooltip("Si est? activado, el sensor se propagar? expandi?ndose solamente como una r?faga. Su tiempo de vida ser? mientras no alcance el tama?o l?mite del sensor.")]
     public bool rafaga;
-    [Tooltip("Si está activado, el tamaño del sensor cambiará de forma dinámica, expandiéndose y contrayéndose continuamente como un bucle. Su tiempo de vida estará marcado por la variable tiempo.")]
+    [Tooltip("Si est? activado, el tama?o del sensor cambiar? de forma din?mica, expandi?ndose y contray?ndose continuamente como un bucle. Su tiempo de vida estar? marcado por la variable tiempo.")]
     public bool bucle;
-    [Tooltip("Si está activado, el tamaño del sensor siempre será fijo. Su tiempo de vida estará marcado por la variable tiempo.")]
+    [Tooltip("Si est? activado, el tama?o del sensor siempre ser? fijo. Su tiempo de vida estar? marcado por la variable tiempo.")]
     public bool fijo;
 
     [Space(5)]
 
-    [Header("Configuración de Ráfaga")]
-    [Tooltip("Tamaño máximo límite del sensor. Define hasta donde puede crecer el sensor.")]
-    public float tamañoSensorLimite = 40f;
+    [Header("Configuraci?n de R?faga")]
+    [Tooltip("Tama?o m?ximo l?mite del sensor. Define hasta donde puede crecer el sensor.")]
+    public float tamanoSensorLimite = 40f;
 
     [Space(5)]
 
-    [Header("Configuración de Bucle")]
-    [Tooltip("Define el valor con el que variará el tamaño del sensor.")]
+    [Header("Configuraci?n de Bucle")]
+    [Tooltip("Define el valor con el que variar? el tama?o del sensor.")]
     public float valorBarrido = 10;
 
     private LineRenderer _lineRenderer;
@@ -56,11 +56,11 @@ public class Sensor : MonoBehaviour
     private float _diferenciaDeAjuste = 0f;
 
     // Variables para opciones extras
-    private float _tamañoSensorRestaurar;
+    private float _tamanoSensorRestaurar;
 
     private void Start()
     {
-        _tamañoSensorRestaurar = tamañoSensor;
+        _tamanoSensorRestaurar = tamanoSensor;
     }
 
     private void OnEnable()
@@ -75,9 +75,9 @@ public class Sensor : MonoBehaviour
         _lineRenderer.material = material;
         _lineRenderer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
 
-        _barridoSuperior = tamañoSensor + valorBarrido;
-        _barridoInferior = tamañoSensor - valorBarrido;
-        _scale = tamañoSensor;
+        _barridoSuperior = tamanoSensor + valorBarrido;
+        _barridoInferior = tamanoSensor - valorBarrido;
+        _scale = tamanoSensor;
 
         if (bucle)
         {
@@ -99,8 +99,8 @@ public class Sensor : MonoBehaviour
     private void FixedUpdate()
     {
         transform.rotation = Quaternion.identity;
-        _boxCollider.size = tipoDibujo == TipoDibujo.Caja_Sombreada ? new Vector3(tamañoSensor, tamañoSensor, tamañoSensor) : new Vector3(tamañoSensor, 0.5f, tamañoSensor);
-        _boxCollider.center = tipoDibujo == TipoDibujo.Caja_Sombreada ? new Vector3(0, tamañoSensor / 2, 0) : new Vector3(0, 0.25f, 0);
+        _boxCollider.size = tipoDibujo == TipoDibujo.Caja_Sombreada ? new Vector3(tamanoSensor, tamanoSensor, tamanoSensor) : new Vector3(tamanoSensor, 0.5f, tamanoSensor);
+        _boxCollider.center = tipoDibujo == TipoDibujo.Caja_Sombreada ? new Vector3(0, tamanoSensor / 2, 0) : new Vector3(0, 0.25f, 0);
 
         List<Vector3> posiciones = tipoDibujo == TipoDibujo.Caja_Sombreada ? DibujarCajaSombreada(transform.position) : DibujarPlanoSombreado(transform.position, 'x', 'z', true, true);
 
@@ -123,27 +123,27 @@ public class Sensor : MonoBehaviour
                 _scale = Mathf.Lerp(_scale, _barridoInferior, velocidadEscalado * Time.deltaTime);
             }
 
-            tamañoSensor = _scale;
+            tamanoSensor = _scale;
         }
         else if (rafaga)
         {
-            if (Mathf.Abs(_scale - tamañoSensorLimite) < 1)
+            if (Mathf.Abs(_scale - tamanoSensorLimite) < 1)
             {
                 DesactivarSensor();
             }
-            else if (tamañoSensor <= tamañoSensorLimite)
+            else if (tamanoSensor <= tamanoSensorLimite)
             {
-                _scale = Mathf.Lerp(_scale, tamañoSensorLimite, velocidadEscalado * Time.deltaTime);
+                _scale = Mathf.Lerp(_scale, tamanoSensorLimite, velocidadEscalado * Time.deltaTime);
             }
 
-            tamañoSensor = _scale;
+            tamanoSensor = _scale;
         }
     }
 
     private void DesactivarSensor()
     {
-        tamañoSensor = _tamañoSensorRestaurar;
-        _scale = tamañoSensor;
+        tamanoSensor = _tamanoSensorRestaurar;
+        _scale = tamanoSensor;
         gameObject.SetActive(false);
     }
 
@@ -190,51 +190,51 @@ public class Sensor : MonoBehaviour
         {
             if (eje1PositivoDerecha && eje2PositivoArriba)
             {
-                punto1 = new Vector3(posicion.x - tamañoSensor / 2, posicion.y, posicion.z - tamañoSensor / 2);
-                punto2 = new Vector3(posicion.x - tamañoSensor / 2, posicion.y, posicion.z + tamañoSensor / 2);
-                punto3 = new Vector3(posicion.x + tamañoSensor / 2, posicion.y, posicion.z + tamañoSensor / 2);
-                punto4 = new Vector3(posicion.x + tamañoSensor / 2, posicion.y, posicion.z - tamañoSensor / 2);
+                punto1 = new Vector3(posicion.x - tamanoSensor / 2, posicion.y, posicion.z - tamanoSensor / 2);
+                punto2 = new Vector3(posicion.x - tamanoSensor / 2, posicion.y, posicion.z + tamanoSensor / 2);
+                punto3 = new Vector3(posicion.x + tamanoSensor / 2, posicion.y, posicion.z + tamanoSensor / 2);
+                punto4 = new Vector3(posicion.x + tamanoSensor / 2, posicion.y, posicion.z - tamanoSensor / 2);
             }
             else if (eje1PositivoDerecha && !eje2PositivoArriba)
             {
-                punto1 = new Vector3(posicion.x - tamañoSensor / 2, posicion.y + tamañoSensor, posicion.z + tamañoSensor / 2);
-                punto2 = new Vector3(posicion.x - tamañoSensor / 2, posicion.y + tamañoSensor, posicion.z - tamañoSensor / 2);
-                punto3 = new Vector3(posicion.x + tamañoSensor / 2, posicion.y + tamañoSensor, posicion.z - tamañoSensor / 2);
-                punto4 = new Vector3(posicion.x + tamañoSensor / 2, posicion.y + tamañoSensor, posicion.z + tamañoSensor / 2);
+                punto1 = new Vector3(posicion.x - tamanoSensor / 2, posicion.y + tamanoSensor, posicion.z + tamanoSensor / 2);
+                punto2 = new Vector3(posicion.x - tamanoSensor / 2, posicion.y + tamanoSensor, posicion.z - tamanoSensor / 2);
+                punto3 = new Vector3(posicion.x + tamanoSensor / 2, posicion.y + tamanoSensor, posicion.z - tamanoSensor / 2);
+                punto4 = new Vector3(posicion.x + tamanoSensor / 2, posicion.y + tamanoSensor, posicion.z + tamanoSensor / 2);
             }
         }
         else if (eje1 == 'x' && eje2 == 'y')
         {
             if (eje1PositivoDerecha && eje2PositivoArriba)
             {
-                punto1 = new Vector3(posicion.x - tamañoSensor / 2, posicion.y, posicion.z - tamañoSensor / 2);
-                punto2 = new Vector3(posicion.x - tamañoSensor / 2, posicion.y + tamañoSensor, posicion.z - tamañoSensor / 2);
-                punto3 = new Vector3(posicion.x + tamañoSensor / 2, posicion.y + tamañoSensor, posicion.z - tamañoSensor / 2);
-                punto4 = new Vector3(posicion.x + tamañoSensor / 2, posicion.y, posicion.z - tamañoSensor / 2);
+                punto1 = new Vector3(posicion.x - tamanoSensor / 2, posicion.y, posicion.z - tamanoSensor / 2);
+                punto2 = new Vector3(posicion.x - tamanoSensor / 2, posicion.y + tamanoSensor, posicion.z - tamanoSensor / 2);
+                punto3 = new Vector3(posicion.x + tamanoSensor / 2, posicion.y + tamanoSensor, posicion.z - tamanoSensor / 2);
+                punto4 = new Vector3(posicion.x + tamanoSensor / 2, posicion.y, posicion.z - tamanoSensor / 2);
             }
             else if (!eje1PositivoDerecha && eje2PositivoArriba)
             {
-                punto1 = new Vector3(posicion.x - tamañoSensor / 2, posicion.y, posicion.z + tamañoSensor / 2);
-                punto2 = new Vector3(posicion.x - tamañoSensor / 2, posicion.y + tamañoSensor, posicion.z + tamañoSensor / 2);
-                punto3 = new Vector3(posicion.x + tamañoSensor / 2, posicion.y + tamañoSensor, posicion.z + tamañoSensor / 2);
-                punto4 = new Vector3(posicion.x + tamañoSensor / 2, posicion.y, posicion.z + tamañoSensor / 2);
+                punto1 = new Vector3(posicion.x - tamanoSensor / 2, posicion.y, posicion.z + tamanoSensor / 2);
+                punto2 = new Vector3(posicion.x - tamanoSensor / 2, posicion.y + tamanoSensor, posicion.z + tamanoSensor / 2);
+                punto3 = new Vector3(posicion.x + tamanoSensor / 2, posicion.y + tamanoSensor, posicion.z + tamanoSensor / 2);
+                punto4 = new Vector3(posicion.x + tamanoSensor / 2, posicion.y, posicion.z + tamanoSensor / 2);
             }
         }
         else if (eje1 == 'z' && eje2 == 'y')
         {
             if (eje1PositivoDerecha && eje2PositivoArriba)
             {
-                punto1 = new Vector3(posicion.x - tamañoSensor / 2, posicion.y, posicion.z - tamañoSensor / 2);
-                punto2 = new Vector3(posicion.x - tamañoSensor / 2, posicion.y + tamañoSensor, posicion.z - tamañoSensor / 2);
-                punto3 = new Vector3(posicion.x - tamañoSensor / 2, posicion.y + tamañoSensor, posicion.z + tamañoSensor / 2);
-                punto4 = new Vector3(posicion.x - tamañoSensor / 2, posicion.y, posicion.z + tamañoSensor / 2);
+                punto1 = new Vector3(posicion.x - tamanoSensor / 2, posicion.y, posicion.z - tamanoSensor / 2);
+                punto2 = new Vector3(posicion.x - tamanoSensor / 2, posicion.y + tamanoSensor, posicion.z - tamanoSensor / 2);
+                punto3 = new Vector3(posicion.x - tamanoSensor / 2, posicion.y + tamanoSensor, posicion.z + tamanoSensor / 2);
+                punto4 = new Vector3(posicion.x - tamanoSensor / 2, posicion.y, posicion.z + tamanoSensor / 2);
             }
             else if (!eje1PositivoDerecha && eje2PositivoArriba)
             {
-                punto1 = new Vector3(posicion.x + tamañoSensor / 2, posicion.y, posicion.z - tamañoSensor / 2);
-                punto2 = new Vector3(posicion.x + tamañoSensor / 2, posicion.y + tamañoSensor, posicion.z - tamañoSensor / 2);
-                punto3 = new Vector3(posicion.x + tamañoSensor / 2, posicion.y + tamañoSensor, posicion.z + tamañoSensor / 2);
-                punto4 = new Vector3(posicion.x + tamañoSensor / 2, posicion.y, posicion.z + tamañoSensor / 2);
+                punto1 = new Vector3(posicion.x + tamanoSensor / 2, posicion.y, posicion.z - tamanoSensor / 2);
+                punto2 = new Vector3(posicion.x + tamanoSensor / 2, posicion.y + tamanoSensor, posicion.z - tamanoSensor / 2);
+                punto3 = new Vector3(posicion.x + tamanoSensor / 2, posicion.y + tamanoSensor, posicion.z + tamanoSensor / 2);
+                punto4 = new Vector3(posicion.x + tamanoSensor / 2, posicion.y, posicion.z + tamanoSensor / 2);
             }
         }
 
