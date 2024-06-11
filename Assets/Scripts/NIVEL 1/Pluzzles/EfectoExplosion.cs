@@ -3,18 +3,18 @@ using System.Collections;
 
 public class EfectoExplosion : MonoBehaviour
 {
-    public float minForce = 30f;        // Fuerza m韓ima de dispersi髇
-    public float maxForce = 60f;       // Fuerza m醲ima de dispersi髇
-    public float forceDuration = 0.5f; // Duraci髇 de la fuerza inicial
-    public float moveDuration = 1f;    // Duraci髇 del movimiento controlado
+    public float minForce = 30f;        // Fuerza m铆nima de dispersi贸n
+    public float maxForce = 60f;       // Fuerza m谩xima de dispersi贸n
+    public float forceDuration = 0.5f; // Duraci贸n de la fuerza inicial
+    public float moveDuration = 1f;    // Duraci贸n del movimiento controlado
     public float moveSpeed = 2f;       // Velocidad de movimiento
-    public new ParticleSystem particleSystem;  // Referencia al sistema de part韈ulas
+    public new ParticleSystem particleSystem;  // Referencia al sistema de part铆culas
     private float radioDeExplosion = 100f;
     //private bool isMoving = false;
 
     void Start()
     {
-        // Reproducir el sistema de part韈ulas
+        // Reproducir el sistema de part铆culas
         if (particleSystem != null)
         {
             particleSystem.Play();
@@ -25,7 +25,7 @@ public class EfectoExplosion : MonoBehaviour
 
         if (rb != null)
         {
-            // Generar una direcci髇 aleatoria en el plano XY
+            // Generar una direcci贸n aleatoria en el plano XY
             Vector3 randomDirection = Random.insideUnitCircle.normalized;
             // Generar una magnitud de fuerza aleatoria entre minForce y maxForce
             float randomForce = Random.Range(minForce, maxForce);
@@ -33,7 +33,7 @@ public class EfectoExplosion : MonoBehaviour
             // Aplicar la fuerza a la pieza del rompecabezas
             rb.AddForce(randomDirection * randomForce, ForceMode.Impulse);
 
-            // Iniciar la corrutina para detener la fuerza inicial despu閟 de cierto tiempo
+            // Iniciar la corrutina para detener la fuerza inicial despu茅s de cierto tiempo
             //StartCoroutine(StopInitialForce(rb, forceDuration));
         }
     }
@@ -56,7 +56,7 @@ public class EfectoExplosion : MonoBehaviour
         float elapsedTime = 0f;
         while (elapsedTime < moveDuration)
         {
-            // Mover la pieza en una direcci髇 aleatoria
+            // Mover la pieza en una direcci贸n aleatoria
             Vector2 randomDirection = Random.insideUnitCircle.normalized;
             rb.velocity = randomDirection * moveSpeed;
 
@@ -64,7 +64,7 @@ public class EfectoExplosion : MonoBehaviour
             yield return null;
         }
 
-       /* // Detener el movimiento controlado despu閟 del tiempo especificado
+       /* // Detener el movimiento controlado despu茅s del tiempo especificado
         rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
         isMoving = false;*/
