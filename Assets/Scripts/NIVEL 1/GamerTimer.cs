@@ -6,31 +6,32 @@ using UnityEngine.SceneManagement;
 
 public class GameTimer : MonoBehaviour
 {
+    public PuzzleChecker checker;
     public float timeRemaining = 300;
     public TextMeshProUGUI timerText;
-    private bool timerIsRunning = true;
+    private bool timerIsRunning;
 
-    void Start()
+    public void Initialize()
     {
-        UpdateTimerUI();
+        timerIsRunning = true;
     }
 
     void Update()
     {
+        UpdateTimerUI();
+        
         if (timerIsRunning)
         {
             if (timeRemaining > 0)
             {
                 timeRemaining -= Time.deltaTime;
-                UpdateTimerUI();
             }
             else
             {
                 timeRemaining = 0;
                 timerIsRunning = false;
-                // Lógica para cuando el tiempo se agote
-                Debug.Log("Time has run out!");
-                SceneManager.LoadScene("GameOverScene");
+
+                checker.Die();
             }
         }
     }
@@ -39,13 +40,11 @@ public class GameTimer : MonoBehaviour
     {
         timeRemaining -= amount;
         if (timeRemaining < 0) timeRemaining = 0;
-        UpdateTimerUI();
     }
 
     public void AddTime(float amount)
     {
         timeRemaining += amount;
-        UpdateTimerUI();
     }
 
     private void UpdateTimerUI()

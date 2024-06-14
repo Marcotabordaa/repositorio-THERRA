@@ -1,46 +1,72 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PuzzleChecker : MonoBehaviour
 {
-    public GameObject[] puzzlePieces; // Asigna las piezas del puzzle en el inspector
-    private bool isPuzzleComplete = false;
-    private int piezas = 0;
-    bool abierto = false;
-    public OpenDoor openDoor;
-
-    void Update()
+    public List<PuzzlePiece> puzzlePieces; // Asigna las piezas del puzzle en el inspector
+    public GameTimer gameTimer;
+   // public TimelineController timelineController;
+    private void Start()
     {
-        if (!isPuzzleComplete && CheckPuzzleComplete())
-        {
-            isPuzzleComplete = true;
-            LiberarPuerta();
-        }
+        // TODO: Activar timeline inicio de juego
+
+        //timelineController.PlayStartTimeline();
+        StartCoroutine(StartGame());
+        Debug.Log("Inicio del juego");
+        StartCoroutine(StartGame());
     }
 
-    bool CheckPuzzleComplete()
+    private IEnumerator StartGame()
     {
-        piezas = 0; // Resetear el contador de piezas correctamente colocadas
-        foreach (GameObject piece in puzzlePieces)
-        {
-            PuzzlePiece puzzlePiece3D = piece.GetComponent<PuzzlePiece>();
-            if (puzzlePiece3D == null || !puzzlePiece3D.isCorrectlyPlaced)
-            {
-                return false;
-            }
-            piezas++;
-        }
-        return true;
+        Debug.Log("Inicia animacion de explosion");
+        yield return new WaitForSeconds(10);
+        // Inicia el timer del juego.
+        gameTimer.Initialize();
     }
 
-    void LiberarPuerta()
-         
+    public void PuzzleCompleted()
     {
-        Debug.Log("Número de piezas correctamente colocadas: " + piezas);
-        if (piezas >= puzzlePieces.Length) // Asegúrate de comparar con el número total de piezas
-        {
-            Debug.Log("Todas las piezas están en su lugar. Abriendo la puerta.");
-            abierto = true;
-            openDoor.Open(abierto);
-        }
+        // TODO: Activar el timeline de fin de juego
+        Debug.Log("Completado");
+        //timelineController.PlayEndTimeline();
+       
+        StartCoroutine(CompletedGame());
+    }
+
+    private IEnumerator CompletedGame()
+    {
+        Debug.Log("Completaste el juego");
+        yield return new WaitForSeconds(10);
+        Debug.Log("Cambio a escena nivel 2");
+        Debug.Log("Fin");
+    }
+
+    public void Die()
+    {
+        // TODO: Activar el timeline de perder
+      
+        
+       // timelineController.PlayLoseTimeline();
+        StartCoroutine(DieGame());
+        Debug.Log("MORISTE");
+        
+    }
+
+    private IEnumerator DieGame()
+        
+    {   
+        //timelineController.PlayLoseTimeline();
+
+        Debug.Log("Animacion Perdiste");
+        // lo hace
+
+        yield return new WaitForSeconds(5);
+        // Cambio de escena a menu
+        Debug.Log("Fin");
+
+        yield return new WaitForSeconds(5);
+        // Cambio de escena a menu
+        Debug.Log("Fin");
     }
 }

@@ -4,25 +4,18 @@ using UnityEngine;
 
 public class NoteCollector : MonoBehaviour
 {
-    public GameTimer gameTimer;  
+    public int score;
+    public GameTimer gameTimer;
     public float timeToAdd = 30f;
 
-    private int score = 0;
-
-        void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Note"))
         {
-            if (other.gameObject.CompareTag("Note"))
-            {
-                score++;
-                Debug.Log("Score: " + score);
-                Destroy(other.gameObject);
-            }
-
-        if (gameTimer != null)
-        {
+            Destroy(other.gameObject);
             gameTimer.AddTime(timeToAdd);
+            score++;
         }
-
     }
 
 }

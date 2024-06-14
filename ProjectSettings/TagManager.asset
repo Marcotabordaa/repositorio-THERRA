@@ -6,6 +6,7 @@ TagManager:
   tags:
   - PuzzlePiece
   - Note
+  - Water
   layers:
   - Default
   - TransparentFX
