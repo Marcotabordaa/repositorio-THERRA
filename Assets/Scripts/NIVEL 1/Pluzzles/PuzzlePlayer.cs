@@ -15,6 +15,7 @@ public class PuzzlePlayer : MonoBehaviour
         // Verifica si el jugador hace clic
         if (Input.GetMouseButtonDown(0))
         {
+            Debug.Log("Mouse clicked");
             // Si no está sosteniendo una pieza, intenta recoger una
             if (piezaSostenida == null)
             {
@@ -30,10 +31,29 @@ public class PuzzlePlayer : MonoBehaviour
 
     void RecogerPieza()
     {
+        Ray ray = camara.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
+        Debug.Log("Casting ray from: " + ray.origin + " in direction: " + ray.direction);
+
+        if (Physics.Raycast(ray, out hit, distanciaRecoger))
+        {
+            Debug.Log("Raycast hit: " + hit.transform.name + " at distance: " + hit.distance);
+            {
+                Debug.Log("Raycast hit: " + hit.transform.name);
+                Debug.Break(); // Esto pausará el juego en este punto
+                               // Resto del código...
+            }
+        }
+        else
+        {
+            Debug.Log("Raycast did not hit anything within " + distanciaRecoger + " units");
+        }
+        Debug.DrawRay(ray.origin, ray.direction * distanciaRecoger, Color.red, 1f);
+        
         // Lanza un rayo desde la posición de la cámara en la dirección en la que está apuntando
         if (Physics.Raycast(camara.ScreenPointToRay(Input.mousePosition), out hit, distanciaRecoger))
         {
+            Debug.Log("Raycast hit: " + hit.transform.name);
             // Si el rayo golpea una pieza de puzzle, la recoge
             PuzzlePiece pieza = hit.transform.GetComponent<PuzzlePiece>();
             if (pieza != null && !pieza.isCorrectlyPlaced)
@@ -50,5 +70,14 @@ public class PuzzlePlayer : MonoBehaviour
         // Suelta la pieza y la deja en la posición actual del cursor
         piezaSostenida.DropPiece();
         piezaSostenida = null;
+    }
+    private void OnDrawGizmos()
+    {
+        if (camara != null)
+        {
+            Gizmos.color = Color.yellow;
+            Vector3 direction = camara.transform.forward * distanciaRecoger;
+            Gizmos.DrawRay(camara.transform.position, direction);
+        }
     }
 }

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8c20627c100105242a9d592f37df4f58
+guid: 8a2b9e2a607dd2143b58c44bc32410b4
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -8,8 +8,9 @@ TrueTypeFontImporter:
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
+  fontName: Electronic Highway Sign
   fontNames:
-  - Punk University
+  - Electronic Highway Sign
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0

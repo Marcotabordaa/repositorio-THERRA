@@ -15,7 +15,7 @@ public class PuzzlePiece : MonoBehaviour
     }
 
     public void PickUpPiece(Transform playerHand)
-    {
+    {Debug.Log("Picking up piece: " + gameObject.name);
         rb.useGravity = false; // Desactiva la gravedad mientras se sostiene la pieza
         rb.isKinematic = true; // Desactiva la física mientras se sostiene la pieza
         transform.position = playerHand.position; // Coloca la pieza en la posición de la mano del jugador
